@@ -12,12 +12,10 @@ class App:
 
     self.data_file = "data.json"
     self.todos = self.load_todos()
-
     self.todos_label = []
-
+    self.status = []
     self.create_ui()
     self.refresh_scrollframe()
-
     self.message_var = StringVar(value="")
     self.message_label = CTkLabel(self.master, textvariable=self.message_var, text_color="white", font=("Arial", 14))
     self.message_label.pack(pady=(0, 5))
@@ -27,7 +25,7 @@ class App:
         with open(self.data_file, "r") as f:
             try:
                 return json.load(f)
-            except json.JSONDecodeError:
+            except (FileNotFoundError, json.JSONDecodeError):
                 return []
     return []
 
@@ -64,10 +62,10 @@ class App:
     if not todo_name:
       self.show_message("Please enter a todo name.", "orange")
       return
-    if todo_name in self.todos:
+    if any(todo["name"] == todo_name for todo in self.todos):
       self.show_message(f"{todo_name} already exists.", "red")
       return
-    self.todos.append(todo_name)
+    self.todos.append({"name": todo_name, "done": False})
     self.save_data()
     self.todoentry.delete(0, END)
     self.refresh_scrollframe()
@@ -78,7 +76,9 @@ class App:
     if not todo_name:
       self.show_message("Please enter a todo name.", "orange")
       return
-    self.todos.remove(todo_name)
+    if todo_name not in self.todos:
+      self.show_message("No todo with this name.", "orange")
+    self.todos.remove({"name": todo_name, "done": False})
     self.save_data()
     self.todoentry.delete(0, END)
     self.refresh_scrollframe()
@@ -90,9 +90,10 @@ class App:
     self.todos_label.clear()
 
     for todo in self.todos:
-      checkbox = CTkCheckBox(self.scroll_frame, text=todo, font=("Arial", 14))
+      checkbox = CTkCheckBox(self.scroll_frame, text=todo["name"], font=("Arial", 14), onvalue=True, offvalue=False)
       checkbox.pack(fill="x", padx=10, pady=5)
       self.todos_label.append(checkbox)
+      checkbox.select() if todo["done"] else checkbox.deselect()
 
 
 if __name__ == "__main__":
