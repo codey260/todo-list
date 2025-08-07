@@ -77,6 +77,11 @@ python3 app.py
 
 ---
 
+## Discalmer
+This app doesn't save the status whether it's checked or not, to check the data edit the data.json file and edit the "done" value to true instead of false, I am working on saving status function
+
+---
+
 ## Contributing
 
 We Welcome all contributions of all kinds- whether it's fixing bugs, improving the code, or suggesting new features.
