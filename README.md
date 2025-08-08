@@ -69,10 +69,12 @@ git clone https://github.com/codey260/todo-list.git
 cd todo-list
 # Run the App
 ./App
+```
 
 ---
 
 ## Discalmer
+
 This app doesn't save the status whether it's checked or not, to check the data edit the data.json file and edit the "done" value to true instead of false, I am working on saving status function
 
 ---
@@ -94,4 +96,7 @@ Please make sure your code is clean, well-documented, and passes all tests if ap
 ## Issues
 
 if you find an issue in the application please report in [Issues](https://github.com/codey260/todo-list/issues)
+
+```
+
 ```
