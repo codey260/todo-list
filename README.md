@@ -39,24 +39,13 @@ This project demonstrates basic CRUD operations for managing students and shows 
 
 ---
 
-## ✅ Requirements
-
-To run this project, you need:
-
-- **Python 3.7+**
-- Standard Python library only:
-  - `customtkinter`
-  - `json` (built-in)
-
----
-
 ## 🖥️ Supported Operating Systems
 
 This project runs on:
 
 - ✅ **Windows** (tested)
 - ✅ **Linux** (tested)
-- ✅ **macOS** (should work as long as `customtkinter` is installed)
+- ✅ **macOS**
 
 ---
 
