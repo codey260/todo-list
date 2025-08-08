@@ -63,17 +63,12 @@ This project runs on:
 ## 🚀 How to Run
 
 ```bash
-# 1️⃣ Make sure you have Python installed:
-python3 --version
-
-# 2️⃣ Install customtkinter:
-python3 -m venv .venv
-source .venv/bin/activate
-pip install customtkinter
-
-# 3️⃣️ Run The Python File:
-python3 app.py
-```
+# Clone The Repository
+git clone https://github.com/codey260/todo-list.git
+# Change Directory to the repository directory
+cd todo-list
+# Run the App
+./App
 
 ---
 
@@ -99,3 +94,4 @@ Please make sure your code is clean, well-documented, and passes all tests if ap
 ## Issues
 
 if you find an issue in the application please report in [Issues](https://github.com/codey260/todo-list/issues)
+```
